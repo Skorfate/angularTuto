@@ -1,0 +1,67 @@
+<p>empleado works!</p>
+{{titulo}}
+
+<h1>directivas</h1>
+<button (click) = "cambiarTrabajador()" > Cambiar trabajor externo</button>
+<!--Directivas if-->
+<ul *ngIf="trabajorExterno == true" >
+    <li>{{trabajadores[0].nombre}}</li>
+    <li>{{trabajadores[0].edad}}</li>
+    <li>{{trabajadores[0].cargo}}</li>
+</ul>
+
+<ul *ngIf="trabajorExterno == false" >
+    <li>{{empleado.nombre}}</li>
+    <li>{{empleado.edad}}</li>
+    <li>{{empleado.cargo}}</li>
+</ul>
+
+<!--Directivas for-->
+<ul *ngFor= " let empleado of trabajadores; let i = index " >
+    <strong>Empleado: {{i+1}}</strong>
+    <li>{{empleado.nombre}}</li>
+    <li>{{empleado.edad}}</li>
+    <li>{{empleado.cargo}}</li>
+</ul>
+
+<!--Directivas switch-->
+<ul  [ngSwitch]="color">
+    <li *ngSwitchCase="'red'" [ngStyle]="{'background': color, 'color' : 'white' }">
+        Es color rojo
+    </li>
+
+</ul>
+
+<!--two biding-->
+<pre [style.border]="color_seleccionado == 'red' ? '5px solid black' : '1px solid green'">
+<h3>Selector de color</h3>
+<input type="text" [(ngModel)]="color_seleccionado"/>
+{{color_seleccionado}}
+</pre>
+<div [ngStyle] = "{
+    'background' : color_seleccionado,
+    'width' : '200px',
+    'height' : '200px',
+    'float' : 'right',
+    'margin-right':'45%'
+}"></div>
+
+
+<!--ngclass-->
+<pre [style.border]="color_seleccionado == 'red' ? '5px solid black' : '1px solid green'"
+    [class.fondoAzul]="color_seleccionado == 'blue'"
+>
+    <h3>Selector de color</h3>
+    <input type="text" [(ngModel)]="color_seleccionado"/>
+    {{color_seleccionado}}
+    </pre>
+  
+    <pre [style.border]="color_seleccionado == 'red' ? '5px solid black' : '1px solid green'"
+    [ngClass]="{fondoAzul: color_seleccionado == 'blue',
+                fondoVerde: color_seleccionado == 'green',
+                letraGrande: 1==1 }"
+>
+    <h3>Selector de color</h3>
+    <input type="text" [(ngModel)]="color_seleccionado"/>
+    {{color_seleccionado}}
+    </pre>
