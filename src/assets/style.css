@@ -9,3 +9,13 @@
 .letraGrande {
     font-size: 40px;
 }
+
+.activo{
+    font-weight: bold;
+    background-color: lightgreen;
+}
+
+.labelRed{
+    font-weight: bold;
+    color: red;
+}

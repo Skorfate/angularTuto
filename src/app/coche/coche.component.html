@@ -1,0 +1,23 @@
+<p>coche works!</p>
+<form #formCoche="ngForm" (ngSubmit)="onSubmit(); formCoche.reset();">
+  <p>
+    <label>Nombre</label>
+    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre" required/>
+    <span *ngIf="nombre.touched && !nombre.valid">
+        El nombre del coche no es valido
+    </span>
+  </p>
+  <p>
+    <label>Caballos</label>
+    <input type="text" name="caballos" #caballos="ngModel" [(ngModel)]="coche.caballos" required pattern="[0-9]+"/>
+    <span *ngIf="caballos.touched && !caballos.valid">
+        Los caballos no es valido
+    </span>
+  </p>
+  <p>
+    <label>color</label>
+    <input type="text" name="color" #color="ngModel" [(ngModel)]="coche.color" required />
+  </p>
+
+  <input type="submit" value="guardar" [disabled]="!formCoche.form.valid"/>
+</form>
