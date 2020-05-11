@@ -11,6 +11,8 @@ import { ErrorComponent } from './error/error.component';
 import { RopaComponent } from './ropa/ropa.component';
 import { ConversorPipe } from './pipe/conversor.pipe';
 import { CocheComponent } from './coche/coche.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { CocheComponent } from './coche/coche.component';
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
